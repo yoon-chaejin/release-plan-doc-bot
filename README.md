@@ -1,5 +1,9 @@
 # release-plan-doc-bot
 
+<details>
+<summary>요구사항 상세 보기</summary>
+<div markdown="1">
+
 ## 🚀 기능 요구사항
 - 이 프로그램은 배포계획서 관련 업무를 자동으로 진행하는 프로그램이다.
 - 배포계획서 관련 업무는 다음과 같다
@@ -44,3 +48,17 @@ SOR ID(CHXXXXXX-XXXXXX) :
 ## 📈 진행 요구사항
 - 기능을 구현하기 전에 release-plan-doc-bot/README.md 파일 및 ISSUE에 구현할 기능 목록을 정리해 추가한다.
 - git의 commit 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위로 추가한다.
+
+</div>
+</details>
+
+## 기능 목록
+- scrape release-plan from word-file
+- sign in to serviceflow
+- scrape release-plan from serviceflow
+- check sor id
+- review release-plan with release-plan
+- update release-plan
+- update word-file
+- export daily report
+- export weekly report
