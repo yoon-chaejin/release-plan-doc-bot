@@ -53,12 +53,4 @@ SOR ID(CHXXXXXX-XXXXXX) :
 </details>
 
 ## 기능 목록
-- scrape release-plan from word-file
-- sign in to serviceflow
-- scrape release-plan from serviceflow
-- check sor id
-- review release-plan with release-plan
-- update release-plan
-- update word-file
-- export daily report
-- export weekly report
+- [] load release plan from docx file
