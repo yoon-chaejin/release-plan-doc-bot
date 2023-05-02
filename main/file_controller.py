@@ -1,3 +1,7 @@
+from tkinter import filedialog
 class FileController:
     def getFilePaths(self):
-        return []
+
+        filePaths = filedialog.askopenfilenames()
+
+        return list(filePaths)
