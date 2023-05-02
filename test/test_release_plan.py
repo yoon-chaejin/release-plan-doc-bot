@@ -5,7 +5,7 @@ import os
 class TestReleasePlan(unittest.TestCase):
 
     def test_constructor_ReleasePlanFromDocxFile(self):
-        ##given
+        # given
         root_dir = os.getcwd()
         file_path = root_dir + '/resources/sample.docx'
         title = '제목DATA'
