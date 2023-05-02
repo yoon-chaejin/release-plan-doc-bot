@@ -19,10 +19,10 @@ class TestReleasePlan(unittest.TestCase):
         release_plan_copy = ReleasePlanFromDocxFile(file_path_copy)
 
         # then
-        self.assertEquals(release_plan.title, title)
-        self.assertEquals(release_plan.request_id, request_id)
+        self.assertEqual(release_plan.title, title)
+        self.assertEqual(release_plan.request_id, request_id)
 
-        self.assertEquals(release_plan_copy.title, title_copy)
+        self.assertEqual(release_plan_copy.title, title_copy)
 
 if __name__ == '__main__':
     unittest.main()
