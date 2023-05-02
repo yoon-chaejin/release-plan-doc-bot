@@ -3,12 +3,12 @@ from main.file_controller import FileController
 
 class TestFileController(unittest.TestCase):
     
-    def test_getFilePaths(self):
+    def test_get_file_paths(self):
         # given
-        fc = FileController()
+        file_controller = FileController()
 
         # when
-        filePaths = fc.getFilePaths()
+        file_paths = file_controller.get_file_paths()
 
         # then
-        self.assertIsInstance(filePaths, type([]))
+        self.assertIsInstance(file_paths, type([]))
