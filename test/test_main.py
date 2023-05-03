@@ -1,4 +1,7 @@
 import unittest
+import os
+from main.release_plan import ReleasePlanFromDocxFile
+from docx import Document
 
 class TestMain(unittest.TestCase):
 
@@ -6,16 +9,17 @@ class TestMain(unittest.TestCase):
         self.assertEqual(True, True)
 
     def test_create_daily_report(self):
-        pass
         # given
-        # input으로 다음 2개 file이 들어왔다고 가정
-        # ['/Users/choijaeyoung/Desktop/yoon-chaejin-dev/release-plan-doc-bot/resources/sample_copy.docx', '/Users/choijaeyoung/Desktop/yoon-chaejin-dev/release-plan-doc-bot/resources/sample.docx']
-        
+        root_dir = os.getcwd()
+        file_paths = [root_dir + '/resources/sample.docx', root_dir + '/resources/sample_copy.docx']
+        release_plans = [ReleasePlanFromDocxFile(i) for i in file_paths]
+
         # when
         # create_daily_report 호출
+        daily_report = create_daily_report(release_plans)
         
         # then
-        # output 으로 docx 파일이 생성됨
+        self.assertIsInstance(daily_report, Document)
         # 파일 내 표가 있음
         # 파일 내 표는 row 3개, col 2개
         # 파일 내 표의 첫 번째 row 는 작업자 / 작업 내용
