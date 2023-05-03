@@ -29,6 +29,11 @@ class TestMain(unittest.TestCase):
         self.assertEqual(daily_report.tables[0].cell(0,0).text, "작업자")
         self.assertEqual(daily_report.tables[0].cell(0,1).text, "작업 내용")
 
+        self.assertEqual(daily_report.tables[0].cell(1,0).text, release_plans[0].get_developer_name())
+        self.assertEqual(daily_report.tables[0].cell(1,1).text, release_plans[0].get_release_plan_description())
+        self.assertEqual(daily_report.tables[0].cell(2,0).text, release_plans[1].get_developer_name())
+        self.assertEqual(daily_report.tables[0].cell(2,1).text, release_plans[1].get_release_plan_description())
+
 
 if __name__ == '__main__':
     unittest.main()
