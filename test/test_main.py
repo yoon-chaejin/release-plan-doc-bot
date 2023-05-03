@@ -2,6 +2,7 @@ import unittest
 import os
 from main.release_plan import ReleasePlanFromDocxFile
 from docx import Document
+from main.main import create_daily_report
 
 class TestMain(unittest.TestCase):
 
@@ -19,7 +20,7 @@ class TestMain(unittest.TestCase):
         daily_report = create_daily_report(release_plans)
         
         # then
-        self.assertIsInstance(daily_report, Document)
+        self.assertIsInstance(daily_report, type(Document()))
         # 파일 내 표가 있음
         # 파일 내 표는 row 3개, col 2개
         # 파일 내 표의 첫 번째 row 는 작업자 / 작업 내용
