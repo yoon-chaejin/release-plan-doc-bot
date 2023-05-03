@@ -26,8 +26,8 @@ class TestMain(unittest.TestCase):
         self.assertEqual(len(daily_report.tables[0].rows), 3)
         self.assertEqual(len(daily_report.tables[0].columns), 2)
         
-        self.assertEqual(daily_report.tables[0].cell(0,0), "작업자")
-        self.assertEqual(daily_report.tables[0].cell(0,1), "작업 내용")
+        self.assertEqual(daily_report.tables[0].cell(0,0).text, "작업자")
+        self.assertEqual(daily_report.tables[0].cell(0,1).text, "작업 내용")
 
 
 if __name__ == '__main__':
