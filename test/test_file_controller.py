@@ -13,3 +13,14 @@ class TestFileController(unittest.TestCase):
 
         # then
         self.assertIsInstance(file_paths, type([]))
+
+    def test_save_document_as_docx_file(self):
+        # given
+        # file_path, file_name, document 가 주어졌을 때
+        
+        # when
+        # document 저장
+
+        # then
+        # file_path + file_name 에 파일이 있는지
+        pass
