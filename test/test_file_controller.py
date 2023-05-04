@@ -1,5 +1,7 @@
 import unittest
 from main.file_controller import FileController
+import os
+from docx import Document
 
 class TestFileController(unittest.TestCase):
     
@@ -16,11 +18,16 @@ class TestFileController(unittest.TestCase):
 
     def test_save_document_as_docx_file(self):
         # given
-        # file_path, file_name, document 가 주어졌을 때
+        file_controller = FileController()
+
+        root_dir = os.getcwd()
+        file_path = root_dir + '/resources/'
+        file_name = 'sample_save.docx'
+        document = Document()
         
         # when
-        # document 저장
+        file_controller.save_document_as_docx_file(file_path, file_name, document)
 
         # then
-        # file_path + file_name 에 파일이 있는지
-        pass
+        result_document = Document(file_path + file_name)
+        self.assertEqual(result_document.core_properties.title, file_name.split('.')[0])
