@@ -4,8 +4,8 @@ import os
 
 class TestReleasePlan(unittest.TestCase):
 
-    def test_constructor_ReleasePlanFromDocxFile(self):
-        ##given
+    def test_constructor_release_plan_from_docx_file(self):
+        # given
         root_dir = os.getcwd()
         file_path = root_dir + '/resources/sample.docx'
         title = '제목DATA'
@@ -19,10 +19,34 @@ class TestReleasePlan(unittest.TestCase):
         release_plan_copy = ReleasePlanFromDocxFile(file_path_copy)
 
         # then
-        self.assertEquals(release_plan.title, title)
-        self.assertEquals(release_plan.request_id, request_id)
+        self.assertEqual(release_plan.title, title)
+        self.assertEqual(release_plan.request_id, request_id)
 
-        self.assertEquals(release_plan_copy.title, title_copy)
+        self.assertEqual(release_plan_copy.title, title_copy)
+    
+    def test_get_developer_name(self):
+        # given
+        root_dir = os.getcwd()
+        file_path = root_dir + '/resources/sample.docx'
+        developer_name = '개발자명DATA'
+        
+        # when
+        release_plan = ReleasePlanFromDocxFile(file_path)
+
+        # then
+        self.assertEqual(release_plan.get_developer_name(), developer_name)
+    
+    def test_get_release_plan_description(self):
+        # given
+        root_dir = os.getcwd()
+        file_path = root_dir + '/resources/sample.docx'
+        release_plan_description = '목적/개선내용DATA'
+
+        # when
+        release_plan = ReleasePlanFromDocxFile(file_path)
+
+        # then
+        self.assertEqual(release_plan.get_release_plan_description(), release_plan_description)
 
 if __name__ == '__main__':
     unittest.main()
