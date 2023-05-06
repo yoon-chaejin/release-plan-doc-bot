@@ -53,5 +53,5 @@ SOR ID(CHXXXXXX-XXXXXX) :
 </details>
 
 ## 기능 목록
-- [V] load release plan from docx file
-- [V] create daily report from a list of release plans
+- [x] load release plan from docx file
+- [x] create daily report from a list of release plans
