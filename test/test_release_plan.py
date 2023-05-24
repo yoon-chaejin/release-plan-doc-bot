@@ -1,6 +1,7 @@
-import unittest
-from main.release_plan import ReleasePlanFromDocxFile
 import os
+import unittest
+
+from main import release_plan as rp
 
 class TestReleasePlan(unittest.TestCase):
 
@@ -15,8 +16,8 @@ class TestReleasePlan(unittest.TestCase):
         title_copy = '제목DATA_COPY'
 
         # when
-        release_plan = ReleasePlanFromDocxFile(file_path)
-        release_plan_copy = ReleasePlanFromDocxFile(file_path_copy)
+        release_plan = rp.ReleasePlanFromDocxFile(file_path)
+        release_plan_copy = rp.ReleasePlanFromDocxFile(file_path_copy)
 
         # then
         self.assertEqual(release_plan.title, title)
@@ -31,7 +32,7 @@ class TestReleasePlan(unittest.TestCase):
         developer_name = '개발자명DATA'
         
         # when
-        release_plan = ReleasePlanFromDocxFile(file_path)
+        release_plan = rp.ReleasePlanFromDocxFile(file_path)
 
         # then
         self.assertEqual(release_plan.get_developer_name(), developer_name)
@@ -43,7 +44,7 @@ class TestReleasePlan(unittest.TestCase):
         release_plan_description = '목적/개선내용DATA'
 
         # when
-        release_plan = ReleasePlanFromDocxFile(file_path)
+        release_plan = rp.ReleasePlanFromDocxFile(file_path)
 
         # then
         self.assertEqual(release_plan.get_release_plan_description(), release_plan_description)

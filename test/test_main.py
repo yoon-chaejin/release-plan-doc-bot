@@ -1,8 +1,10 @@
-import unittest
 import os
-from main.release_plan import ReleasePlanFromDocxFile
+import unittest
+
 from docx import Document
-from main.main import create_daily_report
+
+from main import release_plan as rp
+from main import main
 
 class TestMain(unittest.TestCase):
 
@@ -13,11 +15,11 @@ class TestMain(unittest.TestCase):
         # given
         root_dir = os.getcwd()
         file_paths = [root_dir + '/resources/sample.docx', root_dir + '/resources/sample_copy.docx']
-        release_plans = [ReleasePlanFromDocxFile(i) for i in file_paths]
+        release_plans = [rp.ReleasePlanFromDocxFile(i) for i in file_paths]
 
         # when
         # create_daily_report 호출
-        daily_report = create_daily_report(release_plans)
+        daily_report = main.create_daily_report(release_plans)
         
         # then
         self.assertIsInstance(daily_report, type(Document()))
