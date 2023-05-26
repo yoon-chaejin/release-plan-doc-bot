@@ -4,10 +4,10 @@ import unittest
 from docx import Document
 
 from main import release_plan as rp
-from main import main
+from main import release_plan_controller as rpc
 
 
-class TestMain(unittest.TestCase):
+class TestReleasePlanController(unittest.TestCase):
     def test_sample(self):
         self.assertEqual(True, True)
 
@@ -22,7 +22,7 @@ class TestMain(unittest.TestCase):
 
         # when
         # create_daily_report 호출
-        daily_report = main.create_daily_report(release_plans)
+        daily_report = rpc.create_daily_report(release_plans)
 
         # then
         self.assertIsInstance(daily_report, type(Document()))
