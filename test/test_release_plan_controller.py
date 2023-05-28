@@ -18,7 +18,7 @@ class TestReleasePlanController(unittest.TestCase):
             root_dir + "/resources/sample.docx",
             root_dir + "/resources/sample_copy.docx",
         ]
-        release_plans = [rp.ReleasePlanFromDocxFile(i) for i in file_paths]
+        release_plans = [rp.ReleasePlan.fromDocxFilePath(i) for i in file_paths]
 
         # when
         # create_daily_report 호출
@@ -36,19 +36,19 @@ class TestReleasePlanController(unittest.TestCase):
 
         self.assertEqual(
             daily_report.tables[0].cell(1, 0).text,
-            release_plans[0].get_developer_name(),
+            release_plans[0].developer_name,
         )
         self.assertEqual(
             daily_report.tables[0].cell(1, 1).text,
-            release_plans[0].get_release_plan_description(),
+            release_plans[0].release_plan_description,
         )
         self.assertEqual(
             daily_report.tables[0].cell(2, 0).text,
-            release_plans[1].get_developer_name(),
+            release_plans[1].developer_name,
         )
         self.assertEqual(
             daily_report.tables[0].cell(2, 1).text,
-            release_plans[1].get_release_plan_description(),
+            release_plans[1].release_plan_description,
         )
 
 

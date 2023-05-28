@@ -11,11 +11,9 @@ class ReleasePlanController:
         daily_report.tables[0].cell(0, 1).text = "작업 내용"
 
         for idx, release_plan in enumerate(release_plans):
-            daily_report.tables[0].cell(
-                idx + 1, 0
-            ).text = release_plan.get_developer_name()
+            daily_report.tables[0].cell(idx + 1, 0).text = release_plan.developer_name
             daily_report.tables[0].cell(
                 idx + 1, 1
-            ).text = release_plan.get_release_plan_description()
+            ).text = release_plan.release_plan_description
 
         return daily_report
