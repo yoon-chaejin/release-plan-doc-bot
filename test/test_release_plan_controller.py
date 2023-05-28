@@ -11,6 +11,21 @@ class TestReleasePlanController(unittest.TestCase):
     def test_sample(self):
         self.assertEqual(True, True)
 
+    def test_from_docx_file_paths(self):
+        # given
+        root_dir = os.getcwd()
+        file_paths = [
+            root_dir + "/resources/sample.docx",
+            root_dir + "/resources/sample_copy.docx",
+        ]
+
+        # when
+        release_plans = rpc.ReleasePlanController.from_docx_file_paths(file_paths)
+
+        # then
+        self.assertIsInstance(release_plans, rpc.ReleasePlanController)
+        self.assertEqual(2, len(release_plans.release_plans))
+
     def test_create_daily_report(self):
         # given
         root_dir = os.getcwd()

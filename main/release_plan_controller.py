@@ -1,7 +1,17 @@
 from docx import Document
 
+from main import release_plan as rp
+
 
 class ReleasePlanController:
+    def __init__(self, release_plans=None):
+        self.release_plans = release_plans
+
+    @classmethod
+    def from_docx_file_paths(cls, file_paths: list):
+        release_plans = [rp.ReleasePlan.from_docx_file_path(i) for i in file_paths]
+        return cls(release_plans)
+
     @classmethod
     def create_daily_report(cls, release_plans):
         daily_report = Document()
