@@ -22,7 +22,7 @@ class TestReleasePlanController(unittest.TestCase):
 
         # when
         # create_daily_report 호출
-        daily_report = rpc.create_daily_report(release_plans)
+        daily_report = rpc.ReleasePlanController.create_daily_report(release_plans)
 
         # then
         self.assertIsInstance(daily_report, type(Document()))
