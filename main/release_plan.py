@@ -17,7 +17,7 @@ class ReleasePlan:
         self.release_plan_description = release_plan_description
 
     @classmethod
-    def fromDocxFilePath(cls, file_path: str) -> None:
+    def from_docx_file_path(cls, file_path: str) -> None:
         document = Document(file_path)
         return cls(
             document,

@@ -18,8 +18,8 @@ class TestReleasePlan(unittest.TestCase):
         title_copy = "제목DATA_COPY"
 
         # when
-        release_plan = rp.ReleasePlan.fromDocxFilePath(file_path)
-        release_plan_copy = rp.ReleasePlan.fromDocxFilePath(file_path_copy)
+        release_plan = rp.ReleasePlan.from_docx_file_path(file_path)
+        release_plan_copy = rp.ReleasePlan.from_docx_file_path(file_path_copy)
 
         # then
         self.assertEqual(release_plan.title, title)
