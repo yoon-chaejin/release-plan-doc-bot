@@ -3,7 +3,6 @@ import unittest
 
 from docx import Document
 
-from main import release_plan as rp
 from main import release_plan_controller as rpc
 
 
@@ -20,11 +19,14 @@ class TestReleasePlanController(unittest.TestCase):
         ]
 
         # when
-        release_plans = rpc.ReleasePlanController.from_docx_file_paths(file_paths)
+        release_plan_controller = rpc.ReleasePlanController.from_docx_file_paths(
+            file_paths
+        )
+        release_plans = release_plan_controller.release_plans
 
         # then
-        self.assertIsInstance(release_plans, rpc.ReleasePlanController)
-        self.assertEqual(2, len(release_plans.release_plans))
+        self.assertIsInstance(release_plan_controller, rpc.ReleasePlanController)
+        self.assertEqual(2, len(release_plans))
 
     def test_create_daily_report(self):
         # given
@@ -33,7 +35,10 @@ class TestReleasePlanController(unittest.TestCase):
             root_dir + "/resources/sample.docx",
             root_dir + "/resources/sample_copy.docx",
         ]
-        release_plans = [rp.ReleasePlan.from_docx_file_path(i) for i in file_paths]
+        release_plan_controller = rpc.ReleasePlanController.from_docx_file_paths(
+            file_paths
+        )
+        release_plans = release_plan_controller.release_plans
 
         # when
         # create_daily_report 호출
